@@ -1,0 +1,34 @@
+.main {
+  display: flex;
+  border-radius: 2rem;
+  box-shadow: 0 0 2px #AAA;
+  transition: 200ms;
+}
+
+.main > input {
+  border-radius: 2rem 0 0 2rem;
+  border: 1px solid #AAA;
+  border-right: none;
+  padding: 0.2rem 0.6rem;
+  outline: none;
+  background-color: white;
+  font-size: 18px;
+  transition: inherit;
+}
+
+.main > button {
+  border: 1px solid var(--marvel-blue);
+  background-color: var(--marvel-blue);
+  border-radius: 0 2rem 2rem 0;
+  padding: 0.2rem 0.6rem;
+  cursor: pointer;
+}
+
+.main[data-focus="true"] {
+  box-shadow: 0 0 2px var(--marvel-blue);
+}
+
+.main[data-focus="true"] > input {
+  border: 1px solid var(--marvel-blue);
+  border-right: none;
+}
