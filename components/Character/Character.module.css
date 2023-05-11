@@ -1,0 +1,41 @@
+.main {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  align-items: center;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  height: 250px; width: 150px;
+  border: 1px solid #AAA;
+  box-shadow: 0 0 2px #AAA;
+  overflow: hidden;
+  border-radius: 4px;
+  align-items: center;
+  cursor: pointer;
+  transition: 200ms;
+}
+
+.container:hover {
+  border: 1px solid var(--marvel-blue);
+  box-shadow: 0 0 2px var(--marvel-blue);
+}
+
+.main[data-image-not-found="true"] .container > img {
+  align-self: flex-start;
+}
+
+.title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-grow: 1;
+  width: 150px;
+  color: white;
+  background-color: var(--marvel-blue);
+  font-size: 18px;
+  font-weight: bold;
+  text-align: center;
+}
