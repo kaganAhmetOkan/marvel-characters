@@ -1,6 +1,9 @@
 import style from "./page.module.css";
+import { fetchCharacters } from "@/utils/marvel";
 
-export default function Home() {
+export default async function Home() {
+  const characters = await fetchCharacters({});
+  console.log(characters);
 
   return (
     <main className={style.main}>
