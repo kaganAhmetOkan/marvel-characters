@@ -1,13 +1,13 @@
 import style from "./page.module.css";
-import { fetchCharacters } from "@/utils/marvel";
 import Characters from "@/components/Characters/Characters";
+import { fetchCharacters } from "@/utils/marvel";
 
 export default async function Home() {
-  const characters = await fetchCharacters({});
-  
+  const initialCharacters = await fetchCharacters({});
+
   return (
     <main className={style.main}>
-      <Characters characters={characters} />
+      <Characters initialCharacters={initialCharacters}/>
     </main>
   );
 }

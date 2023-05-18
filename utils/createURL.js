@@ -1,7 +1,7 @@
 import md5 from "md5";
 
-const publicKey = process.env.PUBLIC_KEY;
-const privateKey = process.env.PRIVATE_KEY;
+const publicKey = process.env.NEXT_PUBLIC_PUBLIC_KEY;
+const privateKey = process.env.NEXT_PUBLIC_PRIVATE_KEY;
 const baseURL = process.env.NEXT_PUBLIC_BASE_URL;
 
 export default function createURL({ nameStartsWith, offset, id }) {
