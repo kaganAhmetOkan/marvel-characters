@@ -11,7 +11,9 @@ export default function Character({ character: character }) {
   return (
     <div className={style.main} data-image-not-found={imageNotFound}>
       <div className={style.container}>
-        <Image alt={name} src={image} width={200} height={200} />
+        <div className={style.image}>
+          <Image alt={name} src={image} width={200} height={200} />
+        </div>
         <div className={style.title}>{name}</div>
       </div>
     </div>

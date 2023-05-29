@@ -8,14 +8,15 @@
   align-items: center;
   justify-content: space-between;
   padding: 0 1rem;
-  background-color: var(--background);
+  background-color: var(--bg-primary);
   height: 4rem;
   position: sticky;
   top: 0;
+  z-index: 999;
 }
 
 .main > h1 {
-  color: var(--marvel-blue);
+  color: var(--accent-primary);
   text-transform: uppercase;
   font-weight: bold;
   letter-spacing: 1px;
@@ -27,4 +28,14 @@
   -webkit-text-fill-color: transparent;
   background-size: 200%;
   animation: background-pan 10s linear infinite;
+}
+
+@media (max-width: 800px) {
+  .main {
+    justify-content: center;
+  }
+
+  .main > h1 {
+    display: none;
+  }
 }

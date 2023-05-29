@@ -7,7 +7,7 @@ export default async function Home({ searchParams }) {
   const { results: characters, total, limit } = await fetchCharacters(searchParams);
   const maxPage = Math.ceil(total / limit);
   const pageIndex = Number.parseInt(searchParams?.page ?? 1);
-  console.log({total: total, limit: limit, maxPage: maxPage, pageIndex: pageIndex});
+  
   return (
     <main className={style.main}>
       <Paginator maxPage={maxPage} pageIndex={pageIndex} searchParams={searchParams} />
@@ -20,4 +20,4 @@ export default async function Home({ searchParams }) {
 // TODOS
 // Use prefers-colors-scheme: dark to auto theme pages
 // Use realtime colors to define globals
-// Add paginator
+// Caching doesnt seem to work

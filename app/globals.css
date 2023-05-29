@@ -6,9 +6,25 @@
 :root {
   --root-padding: 4px;
 
-  --foreground: #202020;
-  --background: #FFF;
-  --marvel-blue: #004191;
+  --foreground: #000;
+  --fg-secondary: #fff0f7;
+  --bg-primary: #fff;
+  --bg-secondary: #2f2239;
+
+  --accent-primary: #004191;
+  --accent-secondary: #7e3cb4;
+  --accent-dangerous: #e03229;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground: #fff0f7;
+    --bg-primary: #2f2239;
+    --bg-secondary: #fff;
+
+    --accent-primary: #0d325e;
+    --accent-secondary: #0d1116;
+  }
 }
 
 html {
@@ -24,7 +40,7 @@ html {
 body {
   margin: 0; padding: 0;
   color: var(--foreground);
-  background-color: var(--background);
+  background-color: var(--bg-primary);
   min-height: calc(100vh - var(--root-padding) * 2);
 }
 

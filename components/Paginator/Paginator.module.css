@@ -1,6 +1,17 @@
 .main {
   display: flex;
+  align-items: center;
   gap: 1rem;
+}
+
+.icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--accent-primary);
+  width: 2rem; height: 2rem;
+  border-radius: 2rem;
+  transition: 200ms;
 }
 
 .pages {
@@ -13,7 +24,7 @@
   align-items: center;
   justify-content: center;
   color: white;
-  background-color: var(--marvel-blue);
+  background-color: var(--accent-primary);
   width: 1.5rem; height: 1.5rem;
   border-radius: 1.5rem;
   cursor: pointer;
@@ -21,12 +32,13 @@
   transition: 200ms;
 }
 
+.icon:active,
 .pages > *:active {
   scale: 0.9;
 }
 
 .pages > *[data-current="true"] {
-  background-color: brown;
+  background-color: var(--accent-dangerous);
 }
 
 .dots {
@@ -38,4 +50,22 @@
 
 .dots:active {
   scale: 1;
+}
+
+@media (max-width: 800px) {
+  .main {
+    gap: 4px;
+  }
+
+  .pages {
+    gap: 4px;
+  }
+
+  .dots {
+    display: none;
+  }
+
+  .indexed {
+    background-color: var(--accent-secondary);
+  }
 }

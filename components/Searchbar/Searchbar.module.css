@@ -17,18 +17,18 @@
 }
 
 .main > button {
-  border: 1px solid var(--marvel-blue);
-  background-color: var(--marvel-blue);
+  border: 1px solid var(--accent-primary);
+  background-color: var(--accent-primary);
   border-radius: 0 2rem 2rem 0;
   padding: 0.2rem 0.6rem;
   cursor: pointer;
 }
 
 .main[data-focus="true"] {
-  box-shadow: 0 0 2px var(--marvel-blue);
+  box-shadow: 0 0 2px var(--accent-primary);
 }
 
 .main[data-focus="true"] > input {
-  border: 1px solid var(--marvel-blue);
+  border: 1px solid var(--accent-primary);
   border-right: none;
 }
