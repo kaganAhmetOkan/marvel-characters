@@ -3,9 +3,9 @@ import Image from "next/image";
 import Link from "next/link";
 
 export default function Character({ character: character }) {
-  const {name, thumbnail, id} = character;
+  const { name, thumbnail, id } = character;
   const src = `${thumbnail?.path}.${thumbnail?.extension}`;
-  let imageNotFound = src.includes("image_not_available");
+  const imageNotFound = src.includes("image_not_available");
   const size = 200;
 
   return (

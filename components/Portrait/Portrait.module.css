@@ -3,15 +3,19 @@
   flex-direction: column;
   align-items: center;
   gap: 1rem;
-  width: 400px;
+  width: 320px;
+  height: calc(100vh - var(--header-height) - var(--root-padding) * 2);
   position: sticky;
-  top: 0;
+  top: var(--header-height);
+  overflow-y: auto;
+  flex-shrink: 0;
 }
 
 .title {
   margin: 0;
   text-transform: uppercase;
   letter-spacing: 1px;
+  text-align: center;
 }
 
 .image {

@@ -5,6 +5,7 @@
 
 :root {
   --root-padding: 4px;
+  --header-height: 4rem;
 
   --foreground: #000;
   --fg-secondary: #fff0f7;
@@ -20,7 +21,7 @@
   :root {
     --foreground: #fff0f7;
     --bg-primary: #2f2239;
-    --bg-secondary: #fff;
+    --bg-secondary: #0d1116;
 
     --accent-primary: #0d325e;
     --accent-secondary: #0d1116;

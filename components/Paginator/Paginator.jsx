@@ -4,10 +4,11 @@ import Image from "next/image";
 import iconLeft from "@/public/left.png";
 import iconRight from "@/public/right.png";
 
-export default function Paginator({ pageIndex, maxPage, searchParams }) {
+export default function Paginator({ pageIndex, maxPage, params, searchParams }) {
   const pages = [];
   const nameStartsWith = searchParams?.nameStartsWith ?? "";
   const pagesNumber = Math.min(3, maxPage);
+  const path = params; // TODO: needs testing
   let remainder = 0;
 
   // NOTE: using react.nodes instead of plain objects in pages array may slow down page load or increase page size. Worth investigating

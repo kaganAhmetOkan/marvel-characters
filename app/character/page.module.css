@@ -1,4 +1,20 @@
 .main {
   display: flex;
   padding: 1rem;
+  gap: 1rem;
+}
+
+.comics {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-grow: 1;
+  gap: 1rem;
+}
+
+.title {
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin: 0;
+  text-align: center;
 }
