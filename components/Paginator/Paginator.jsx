@@ -6,46 +6,59 @@ import iconRight from "@/public/right.png";
 
 export default function Paginator({ pageIndex, maxPage, path="/", searchParams }) {
   const pages = [];
-  const nameStartsWith = searchParams?.nameStartsWith ?? "";
   const pagesNumber = Math.min(3, maxPage);
   let remainder = 0;
-  const href = `${path}?${new URLSearchParams(searchParams).toString()}`;
-  console.log(href);
 
   // NOTE: using react.nodes instead of plain objects in pages array may slow down page load or increase page size. Worth investigating
-  
-  if (pageIndex !== 1 && pageIndex > pagesNumber + 1) pages.push(<Link className={style.indexed} href={`?nameStartsWith=${nameStartsWith}&page=1`} >1</Link>);
-  // { type: "link", class: "indexed", page: "1" }
+
+  function generateHREF(page) {
+    const href = `${path}?${new URLSearchParams({ ...searchParams, page: page }).toString()}`;
+    return href;
+  };
+
+  if (pageIndex !== 1 && pageIndex > pagesNumber + 1) {
+    const href = generateHREF(1)
+    pages.push(<Link className={style.indexed} href={href} >1</Link>);
+  };
   if (pageIndex > pagesNumber + 1) pages.push(<div className={style.dots}>...</div>);
-  // { type: "div", class: "dots", page: "..." }
 
   for (let i = pageIndex - pagesNumber; i < pageIndex + pagesNumber + 1; i++) {
     if (i < 1 || i > maxPage) remainder++;
-    else pages.push(<Link href={`?nameStartsWith=${nameStartsWith}&page=${i}`} data-current={pageIndex === i} >{i}</Link>);
-    // { type: "link", current: pageIndex === i, page: i }
+    else {
+      const href = generateHREF(i);
+      pages.push(<Link href={href} data-current={pageIndex === i} >{i}</Link>);
+    };
   };
 
   for (let i = 0; i < remainder; i++) {
-    if (pageIndex - pagesNumber <= 0) pages.push(<Link href={`?nameStartsWith=${nameStartsWith}&page=${pageIndex + pagesNumber + 1 + i}`} >{pageIndex + pagesNumber + 1 + i}</Link>);
-    // { type: "link", page: pageIndex + pagesNumber + 1 + i}
-    else pages.splice(2, 0, <Link href={`?nameStartsWith=${nameStartsWith}&page=${pageIndex - pagesNumber - i}`}>{pageIndex - pagesNumber - i}</Link>)
-    // { type: "link", page: pageIndex - pagesNumber - i }
+    if (pageIndex - pagesNumber <= 0) {
+      const href = generateHREF(pageIndex + pagesNumber + 1 + i);
+      pages.push(<Link href={href} >{pageIndex + pagesNumber + 1 + i}</Link>);
+    }
+    else {
+      const href = generateHREF(pageIndex - pagesNumber - i);
+      pages.splice(2, 0, <Link href={href}>{pageIndex - pagesNumber - i}</Link>)
+    };
   };
 
   if (pageIndex < maxPage - pagesNumber) pages.push(<div className={style.dots}>...</div>);
-  // { type: div, class: "dots", page: "..." }
-  if (pageIndex !== maxPage && pageIndex < maxPage - pagesNumber) pages.push(<Link className={style.indexed} href={`?nameStartsWith=${nameStartsWith}&page=${maxPage}`}>{maxPage}</Link>);
-  // { type: "link", class: "indexed", page: maxPage }
+  if (pageIndex !== maxPage && pageIndex < maxPage - pagesNumber) {
+    const href = generateHREF(maxPage);
+    pages.push(<Link className={style.indexed} href={href}>{maxPage}</Link>)
+  };
 
   while (pages.length > maxPage) pages.pop();
 
+  const previousHREF = generateHREF(Math.max(pageIndex - 1, 1));
+  const nextHREF = generateHREF(Math.min(pageIndex + 1, maxPage));
+
   return (
     <div className={style.main}>
-      <Link className={style.icon} href={`?nameStartsWith=${nameStartsWith}&page=${Math.max(1, pageIndex - 1)}`}>
+      <Link className={style.icon} href={previousHREF}>
         <Image alt="previous" src={iconLeft} height={24} width={"auto"} />
       </Link>
       <div className={style.pages}>{pages}</div>
-      <Link className={style.icon} href={`?nameStartsWith=${nameStartsWith}&page=${Math.min(maxPage, pageIndex + 1)}`}>
+      <Link className={style.icon} href={nextHREF}>
         <Image alt="next" src={iconRight} height={24} width={"auto"} />
       </Link>
     </div>
