@@ -4,7 +4,7 @@ import Portrait from "@/components/Portrait/Portrait";
 import Paginator from "@/components/Paginator/Paginator";
 import Comics from "@/components/Comics/Comics";
 
-export default async function Character({ searchParams, params }) {
+export default async function Character({ searchParams }) {
   const { results: character } = await fetchCharacters(searchParams);
   const { results: comics, total, limit } = await fetchCharacterComics(searchParams);
   const maxPage = Math.ceil(total / limit);
@@ -15,9 +15,9 @@ export default async function Character({ searchParams, params }) {
       <Portrait character={character[0]} />
       <div className={style.comics}>
         <h1 className={style.title}>{`Comics of ${character[0].name}`}</h1>
-        <Paginator pageIndex={pageIndex} maxPage={maxPage} searchParams={searchParams} params={params} />
+        <Paginator pageIndex={pageIndex} maxPage={maxPage} searchParams={searchParams} path={"/character"} />
         <Comics comics={comics} />
-        <Paginator pageIndex={pageIndex} maxPage={maxPage} searchParams={searchParams} params={params} />
+        <Paginator pageIndex={pageIndex} maxPage={maxPage} searchParams={searchParams} path={"/character"} />
       </div>
     </main>
   );

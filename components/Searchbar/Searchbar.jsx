@@ -26,7 +26,7 @@ export default function Searchbar() {
       <input
         id="searchbar-input"
         name="searchbar-input"
-        placeholder="Search a character"
+        placeholder="Search Marvel characters"
         onFocus={() => setFocused(true)}
         onBlur={() => setFocused(false)}
         onChange={(event) => submitSearch(event?.target?.value)}
