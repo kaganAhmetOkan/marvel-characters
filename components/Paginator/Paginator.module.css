@@ -1,0 +1,26 @@
+.main {
+  display: flex;
+  gap: 1rem;
+}
+
+.pages {
+  display: flex;
+  gap: 1rem;
+}
+
+.pages > * {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  background-color: var(--marvel-blue);
+  width: 1.5rem; height: 1.5rem;
+  border-radius: 1.5rem;
+  cursor: pointer;
+  user-select: none;
+  transition: 200ms;
+}
+
+.pages > *:active {
+  scale: 0.9;
+}

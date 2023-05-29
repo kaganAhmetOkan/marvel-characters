@@ -27,3 +27,8 @@ body {
   background-color: var(--background);
   min-height: calc(100vh - var(--root-padding) * 2);
 }
+
+a {
+  color: var(--foreground);
+  text-decoration: none;
+}
