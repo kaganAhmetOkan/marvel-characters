@@ -9,15 +9,25 @@ export default async function Character({ searchParams }) {
   const { results: comics, total, limit } = await fetchCharacterComics(searchParams);
   const maxPage = Math.ceil(total / limit);
   const pageIndex = Number.parseInt(searchParams?.page ?? 1);
+
+  const nodeComic = (
+    <>
+      <Paginator pageIndex={pageIndex} maxPage={maxPage} searchParams={searchParams} path={"/character"} />
+      <Comics comics={comics} />
+      <Paginator pageIndex={pageIndex} maxPage={maxPage} searchParams={searchParams} path={"/character"} />
+    </>
+  );
+
+  const nodeNotFound = <h2>No comics found...</h2>;
+
+  // TODO: configure searchbar to search for comics when in this page
   
   return (
     <main className={style.main}>
       <Portrait character={character[0]} />
       <div className={style.comics}>
         <h1 className={style.title}>{`Comics of ${character[0].name}`}</h1>
-        <Paginator pageIndex={pageIndex} maxPage={maxPage} searchParams={searchParams} path={"/character"} />
-        <Comics comics={comics} />
-        <Paginator pageIndex={pageIndex} maxPage={maxPage} searchParams={searchParams} path={"/character"} />
+        {total > 0 ? nodeComic : nodeNotFound}
       </div>
     </main>
   );

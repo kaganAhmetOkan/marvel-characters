@@ -30,3 +30,10 @@
   width: 300px;
   text-align: justify;
 }
+
+@media (max-width: 800px) {
+  .main {
+    position: static;
+    height: unset;
+  }
+}
