@@ -1,0 +1,28 @@
+.main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  width: 400px;
+  position: sticky;
+  top: 0;
+}
+
+.title {
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.image {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 300px;
+  overflow: hidden;
+}
+
+.description {
+  width: 300px;
+  text-align: justify;
+}

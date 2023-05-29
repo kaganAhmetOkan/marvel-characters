@@ -18,6 +18,4 @@ export default async function Home({ searchParams }) {
 }
 
 // TODOS
-// Use prefers-colors-scheme: dark to auto theme pages
-// Use realtime colors to define globals
 // Caching doesnt seem to work
