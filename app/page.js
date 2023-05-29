@@ -7,12 +7,12 @@ export default async function Home({ searchParams }) {
   const { results: characters, total, limit } = await fetchCharacters(searchParams);
   const maxPage = Math.ceil(total / limit);
   const pageIndex = Number.parseInt(searchParams?.page ?? 1);
-
+  console.log({total: total, limit: limit, maxPage: maxPage, pageIndex: pageIndex});
   return (
     <main className={style.main}>
-      <Paginator maxPage={maxPage} pageIndex={pageIndex} />
+      <Paginator maxPage={maxPage} pageIndex={pageIndex} searchParams={searchParams} />
       <Characters characters={characters} />
-      <Paginator maxPage={maxPage} pageIndex={pageIndex} />
+      <Paginator maxPage={maxPage} pageIndex={pageIndex} searchParams={searchParams} />
     </main>
   );
 }

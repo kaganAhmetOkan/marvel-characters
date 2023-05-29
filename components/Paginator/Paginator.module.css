@@ -24,3 +24,18 @@
 .pages > *:active {
   scale: 0.9;
 }
+
+.pages > *[data-current="true"] {
+  background-color: brown;
+}
+
+.dots {
+  color: var(--foreground);
+  background-color: transparent;
+  width: unset;
+  cursor: default;
+}
+
+.dots:active {
+  scale: 1;
+}
