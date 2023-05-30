@@ -12,6 +12,8 @@
   --bg-primary: #fff;
   --bg-secondary: #2f2239;
 
+  --bg-rgb-primary: 255, 255, 255;
+
   --accent-primary: #004191;
   --accent-secondary: #7e3cb4;
   --accent-dangerous: #e03229;
@@ -22,6 +24,8 @@
     --foreground: #fff0f7;
     --bg-primary: #2f2239;
     --bg-secondary: #0d1116;
+    
+    --bg-rgb-primary: 47, 34, 57;
 
     --accent-primary: #0d325e;
     --accent-secondary: #0d1116;
@@ -41,7 +45,7 @@ html {
 body {
   margin: 0; padding: 0;
   color: var(--foreground);
-  background-color: var(--bg-primary);
+  background: var(--bg-primary);
   min-height: calc(100vh - var(--root-padding) * 2);
 }
 

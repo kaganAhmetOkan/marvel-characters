@@ -1,17 +1,18 @@
 .main {
   display: flex;
   border-radius: 2rem;
-  box-shadow: 0 0 2px #AAA;
+  box-shadow: 0 0 2px var(--accent-primary);
   transition: 200ms;
 }
 
 .main > input {
   border-radius: 2rem 0 0 2rem;
-  border: 1px solid #AAA;
+  border: 1px solid var(--accent-primary);
   border-right: none;
   padding: 0.2rem 0.6rem;
   outline: none;
-  background-color: white;
+  color: var(--foreground);
+  background-color: var(--bg-primary);
   font-size: 18px;
   transition: inherit;
 }
@@ -22,13 +23,25 @@
   border-radius: 0 2rem 2rem 0;
   padding: 0.2rem 0.6rem;
   cursor: pointer;
+  transition: inherit;
 }
 
 .main[data-focus="true"] {
-  box-shadow: 0 0 2px var(--accent-primary);
+  box-shadow: 0 0 2px var(--accent-dangerous);
 }
 
 .main[data-focus="true"] > input {
-  border: 1px solid var(--accent-primary);
+  border: 1px solid var(--accent-dangerous);
   border-right: none;
 }
+
+.main[data-focus="true"] > button {
+  background-color: var(--accent-dangerous);
+  border: 1px solid var(--accent-dangerous);
+}
+
+@media (prefers-color-scheme: dark) {
+  .main > input {
+    background-color: var(--bg-secondary);
+  }
+} 
