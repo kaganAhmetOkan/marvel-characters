@@ -4,7 +4,7 @@ const publicKey = process.env.PUBLIC_KEY;
 const privateKey = process.env.PRIVATE_KEY;
 const baseURL = process.env.BASE_URL;
 
-export default function createURL({ nameStartsWith, page, id, comics }) {
+export default function createURL({ nameStartsWith, titleStartsWith, page, id, comics }) {
   if (!publicKey || !privateKey || !baseURL) return;
 
   const url = new URL(baseURL);
@@ -19,6 +19,7 @@ export default function createURL({ nameStartsWith, page, id, comics }) {
   url.searchParams.set("limit", limit);
 
   if (nameStartsWith) url.searchParams.set("nameStartsWith", nameStartsWith);
+  if (titleStartsWith) url.searchParams.set("titleStartsWith", titleStartsWith);
   if (page) url.searchParams.set("offset", offset);
   if (id) url.pathname += `/${id}`;
   if (comics) url.pathname += `/comics`;

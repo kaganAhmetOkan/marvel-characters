@@ -9,13 +9,13 @@ export default function Character({ character: character }) {
   const size = 200;
 
   return (
-    <Link href={`/character?id=${id}`} className={style.main} data-image-not-found={imageNotFound}>
-      <div className={style.container}>
+    <div className={style.main} data-image-not-found={imageNotFound}>
+      <Link href={`/character?id=${id}`} className={style.container}>
         <div className={style.image}>
           <Image alt={name} src={src} width={size} height={size} />
         </div>
         <div className={style.title}>{name}</div>
-      </div>
-    </Link>
+      </Link>
+    </div>
   );
 };

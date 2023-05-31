@@ -7,12 +7,12 @@
   --root-padding: 4px;
   --header-height: 4rem;
 
-  --foreground: #000;
+  --foreground: #222;
   --fg-secondary: #fff0f7;
-  --bg-primary: #fff;
+  --bg-primary: #fff0f7;
   --bg-secondary: #2f2239;
 
-  --bg-rgb-primary: 255, 255, 255;
+  --bg-rgb-primary: 255, 240, 247;
 
   --accent-primary: #004191;
   --accent-secondary: #7e3cb4;
