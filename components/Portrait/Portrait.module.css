@@ -31,6 +31,10 @@
   text-align: justify;
 }
 
+.main[data-image-not-found="true"] .image {
+  justify-content: flex-start;
+}
+
 @media (max-width: 800px) {
   .main {
     position: static;

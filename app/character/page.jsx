@@ -19,8 +19,6 @@ export default async function Character({ searchParams }) {
   );
 
   const nodeNotFound = <h2>No comics found...</h2>;
-
-  // TODO: configure searchbar to search for comics when in this page
   
   return (
     <main className={style.main}>

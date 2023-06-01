@@ -1,0 +1,11 @@
+.main {
+  display: flex;
+  padding: 1rem;
+  gap: 1rem;
+}
+
+@media (max-width: 800px) {
+  .main {
+    justify-content: center;
+  }
+}

@@ -26,6 +26,3 @@ export default async function Home({ searchParams }) {
     </main>
   );
 }
-
-// TODOS
-// Caching doesnt seem to work
