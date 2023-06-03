@@ -5,8 +5,14 @@ import Link from "next/link";
 export default function Header() {
   return (
     <header className={style.main}>
-      <Link href={"/"}>Marvel Characters</Link>
+      <Link className={style.hero} href={"/"}>Marvel Characters</Link>
+      <nav className={style.nav}>
+        <Link href="/characters">Characters</Link>
+        <Link href="/comics">Comics</Link>
+      </nav>
       <Searchbar />
     </header>
   );
 }
+
+// TODO: needs testing with mobile screens

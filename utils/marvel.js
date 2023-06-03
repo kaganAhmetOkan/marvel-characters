@@ -16,7 +16,7 @@ export async function fetchCharacterComics(searchParams) {
 };
 
 export async function fetchComics(searchParams) {
-  const path = searchParams.id ? `/comics/${id}` : `/comics`;
+  const path = searchParams.id ? `/comics/${searchParams.id}` : `/comics`;
   const url = createURL({ path, searchParams });
   const { data } = await fetchData(url);
   return data;

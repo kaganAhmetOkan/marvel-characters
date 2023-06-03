@@ -1,0 +1,27 @@
+.main {
+  display: flex;
+  justify-content: space-evenly;
+  flex-grow: 1;
+}
+
+.main > a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+  padding: 1rem;
+  color: var(--fg-secondary);
+  background-color: var(--accent-primary);
+  border-radius: 1rem;
+  width: 200px; height: 100px;
+  transition: 200ms;
+  user-select: none;
+}
+
+.main > a:hover {
+  scale: 1.1;
+}
+
+.main > a:active {
+  scale: 1;
+}

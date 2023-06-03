@@ -12,27 +12,33 @@ export default function Searchbar() {
   const path = usePathname();
   const searchParams = useSearchParams();
   const newSearchParams = new URLSearchParams(searchParams);
+  const placeholder = path.includes("character") ? "Search comics" : "Search characters";
+
+  // TODO: placeholder needs to be updated
+  // TODO: submitSearch and handleSubmit using the same block of code, create a function instead
 
   const submitSearch = useCallback(debounce(500, (searchValue) => {
-    if (path === "/character") {
+    if (path === "/character" || path === "/comics") {
       newSearchParams.set("titleStartsWith", searchValue);
+      newSearchParams.delete("page");
       const href = `${path}?${newSearchParams.toString()}`
       router.push(href);
     } else {
-      router.push(`?nameStartsWith=${searchValue}`);
+      router.push(`${path}?nameStartsWith=${searchValue}`);
     }
   }), [path]);
 
   function handleSubmit(event) {
     event.preventDefault();
     const searchValue = event.target[0].value;
-    if (path === "/character") {
+    if (path === "/character" || path === "/comics") {
       newSearchParams.set("titleStartsWith", searchValue);
+      newSearchParams.delete("page");
       const href = `${path}?${newSearchParams.toString()}`
       router.push(href);
     }
     else {
-      router.push(`?nameStartsWith=${searchValue}`);
+      router.push(`${path}?nameStartsWith=${searchValue}`);
     };
   };
 
@@ -42,7 +48,7 @@ export default function Searchbar() {
       <input
         id="searchbar-input"
         name="searchbar-input"
-        placeholder="Search Marvel characters"
+        placeholder={placeholder}
         onFocus={() => setFocused(true)}
         onBlur={() => setFocused(false)}
         onChange={(event) => submitSearch(event?.target?.value)}

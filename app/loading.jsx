@@ -7,7 +7,7 @@ export default function Loading() {
     "Communicating with intergalactic aliens...",
     "Establishing connection with Sun Station...",
     "Starting Fusion Reactor 007...",
-    "Mending the Elder Ring...",
+    "Mending the Eldest Ring...",
     "Calling the cavalry...",
     "Initializing the space-time continuum...",
   ];
