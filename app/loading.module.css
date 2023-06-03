@@ -1,0 +1,17 @@
+@keyframes loading {
+  from {rotate: 0deg;}
+  to {rotate: 360deg;}
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  height: calc(100vh - var(--root-padding) * 2 - var(--header-height));
+}
+
+.main > img {
+  animation: loading 500ms infinite linear;
+}
