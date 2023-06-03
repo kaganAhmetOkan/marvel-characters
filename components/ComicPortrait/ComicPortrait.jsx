@@ -6,8 +6,6 @@ export default function ComicPortrait({ comic: { title, urls, thumbnail } }) {
   const imageNotFound = src.includes("image_not_available");
   const size = { width: 256, height: 393 };
 
-  // TODO: might wanna simplify the html with some components here
-
   return (
     <div className={style.main} data-image-not-found={imageNotFound}>
       <div className={style.image}>

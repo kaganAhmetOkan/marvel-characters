@@ -1,21 +1,24 @@
+"use client";
 import style from "./Paginator.module.css";
 import Link from "next/link";
 import Image from "next/image";
 import iconLeft from "@/public/left.png";
 import iconRight from "@/public/right.png";
+import { usePathname, useSearchParams } from "next/navigation";
 
-export default function Paginator({ pageIndex, maxPage, path="/", searchParams }) {
+export default function Paginator({ pageIndex, maxPage }) {
   const pages = [];
   const pagesNumber = 2
+  const path = usePathname();
+  const searchParams = useSearchParams();
+  const newSearchParams = new URLSearchParams(searchParams);
   let remainder = 0;
-  console.log(searchParams);
-
-  // TODO: make paginator client component and use useSearchparams and usePathname hooks
 
   // NOTE: using react.nodes instead of plain objects in pages array may slow down page load or increase page size. Worth investigating
 
   function generateHREF(page) {
-    const href = `${path}?${new URLSearchParams({ ...searchParams, page: page }).toString()}`;
+    newSearchParams.set("page", page);
+    const href = `${path}?${newSearchParams.toString()}`;
     return href;
   };
 

@@ -10,15 +10,13 @@ export default function Searchbar() {
   const [focused, setFocused] = useState(false);
   const router = useRouter();
   const path = usePathname();
-  const roSearchParams = useSearchParams();
-  const searchParams = new URLSearchParams(roSearchParams.toString());
-
-  // TODO: clean up this code: path searchparams oldsearchparams
+  const searchParams = useSearchParams();
+  const newSearchParams = new URLSearchParams(searchParams);
 
   const submitSearch = useCallback(debounce(500, (searchValue) => {
     if (path === "/character") {
-      searchParams.set("titleStartsWith", searchValue);
-      const href = `${path}?${searchParams.toString()}`
+      newSearchParams.set("titleStartsWith", searchValue);
+      const href = `${path}?${newSearchParams.toString()}`
       router.push(href);
     } else {
       router.push(`?nameStartsWith=${searchValue}`);
@@ -29,8 +27,8 @@ export default function Searchbar() {
     event.preventDefault();
     const searchValue = event.target[0].value;
     if (path === "/character") {
-      searchParams.set("titleStartsWith", searchValue);
-      const href = `${path}?${searchParams.toString()}`
+      newSearchParams.set("titleStartsWith", searchValue);
+      const href = `${path}?${newSearchParams.toString()}`
       router.push(href);
     }
     else {

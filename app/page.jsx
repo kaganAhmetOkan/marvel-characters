@@ -10,9 +10,9 @@ export default async function Home({ searchParams }) {
 
   const nodeCharacters = (
     <>
-      <Paginator maxPage={maxPage} pageIndex={pageIndex} searchParams={searchParams} />
+      <Paginator maxPage={maxPage} pageIndex={pageIndex} />
       <Characters characters={characters} />
-      <Paginator maxPage={maxPage} pageIndex={pageIndex} searchParams={searchParams} />
+      <Paginator maxPage={maxPage} pageIndex={pageIndex} />
     </>
   );
 

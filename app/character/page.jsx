@@ -15,9 +15,9 @@ export default async function Character({ searchParams }) {
 
   const nodeComic = (
     <>
-      <Paginator pageIndex={pageIndex} maxPage={maxPage} searchParams={searchParams} path={"/character"} />
+      <Paginator pageIndex={pageIndex} maxPage={maxPage} />
       <Comics comics={comics} />
-      <Paginator pageIndex={pageIndex} maxPage={maxPage} searchParams={searchParams} path={"/character"} />
+      <Paginator pageIndex={pageIndex} maxPage={maxPage} />
     </>
   );
 
