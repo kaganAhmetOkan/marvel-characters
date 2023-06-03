@@ -10,9 +10,9 @@ BASE_URL=https://gateway.marvel.com:443/v1/public
 LIMIT=20
 ```
 
-You need to get the public and private keys from [Marvel.com](https://developer.marvel.com) by creating an account.
-`BASE_URL` is used for API fetches.
-`LIMIT` is used for limiting the amount of items returned by fetch. It cannot exceed 100 as Marvel won't allow more than that in their APIs. It defaults to 20 so it need not be defined for the app to work.
+- You need to get the public and private keys from [Marvel.com](https://developer.marvel.com) by creating an account.
+- `BASE_URL` is used for API fetches.
+- `LIMIT` is used for limiting the amount of items returned by fetch. It cannot exceed 100 as Marvel won't allow more than that in their APIs. It defaults to 20 so it need not be defined for the app to work.
 
 Make sure you have installed all dependencies by running `yarn` in root directory.
 Then run `yarn dev` and visit [localhost:3000](http://localhost:3000) to see the application in action.
