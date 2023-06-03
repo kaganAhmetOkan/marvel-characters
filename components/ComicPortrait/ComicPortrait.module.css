@@ -1,5 +1,6 @@
 .main {
   display: flex;
+  flex-shrink: 0;
   gap: 1rem;
 }
 
@@ -50,16 +51,6 @@
 
 @media (max-width: 800px) {
   .main {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .details {
-    width: 80vw;
-  }
-
-  .creators {
-    flex-direction: column;
-    align-items: center;
+    justify-content: center;
   }
 }

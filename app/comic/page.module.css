@@ -7,5 +7,6 @@
 @media (max-width: 800px) {
   .main {
     justify-content: center;
+    flex-direction: column;
   }
 }

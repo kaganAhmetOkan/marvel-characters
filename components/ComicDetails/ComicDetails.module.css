@@ -1,0 +1,40 @@
+.main {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  gap: 1rem;
+}
+
+.title {
+  margin: 0;
+  text-align: center;
+}
+
+.description {
+  text-align: justify;
+}
+
+.description[data-no-description="true"] {
+  text-align: center;
+}
+
+.subtitle {
+  margin: 0;
+}
+
+.creators {
+  display: flex;
+  justify-content: space-evenly;
+  gap: 4rem;
+}
+
+@media (max-width: 800px) {
+  .details {
+    width: 80vw;
+  }
+
+  .creators {
+    flex-direction: column;
+    align-items: center;
+  }
+}
