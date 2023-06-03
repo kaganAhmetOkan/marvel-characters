@@ -3,8 +3,11 @@ import { fetchCharacters, fetchCharacterComics } from "@/utils/marvel";
 import Portrait from "@/components/Portrait/Portrait";
 import Paginator from "@/components/Paginator/Paginator";
 import Comics from "@/components/Comics/Comics";
+import { redirect } from "next/navigation";
 
 export default async function Character({ searchParams }) {
+  if (!searchParams?.id) redirect("/");
+
   const { results: character } = await fetchCharacters(searchParams);
   const { results: comics, total, limit } = await fetchCharacterComics(searchParams);
   const maxPage = Math.ceil(total / limit);

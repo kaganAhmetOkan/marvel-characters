@@ -8,6 +8,9 @@ export default function Paginator({ pageIndex, maxPage, path="/", searchParams }
   const pages = [];
   const pagesNumber = 2
   let remainder = 0;
+  console.log(searchParams);
+
+  // TODO: make paginator client component and use useSearchparams and usePathname hooks
 
   // NOTE: using react.nodes instead of plain objects in pages array may slow down page load or increase page size. Worth investigating
 

@@ -2,22 +2,40 @@
 import style from "./Searchbar.module.css";
 import searchIcon from "@/public/search-icon.svg";
 import Image from "next/image";
-import { useRouter } from "next/navigation";
+import { useRouter, usePathname, useSearchParams } from "next/navigation";
 import { useState, useCallback } from "react";
 import { debounce } from "throttle-debounce";
 
 export default function Searchbar() {
   const [focused, setFocused] = useState(false);
   const router = useRouter();
+  const path = usePathname();
+  const roSearchParams = useSearchParams();
+  const searchParams = new URLSearchParams(roSearchParams.toString());
 
-  const submitSearch = useCallback(debounce(500, (nameStartsWith) => {
-    router.push(`?nameStartsWith=${nameStartsWith}`);
-  }), []);
+  // TODO: clean up this code: path searchparams oldsearchparams
+
+  const submitSearch = useCallback(debounce(500, (searchValue) => {
+    if (path === "/character") {
+      searchParams.set("titleStartsWith", searchValue);
+      const href = `${path}?${searchParams.toString()}`
+      router.push(href);
+    } else {
+      router.push(`?nameStartsWith=${searchValue}`);
+    }
+  }), [path]);
 
   function handleSubmit(event) {
     event.preventDefault();
-    const nameStartsWith = event.target[0].value;
-    router.push(`?nameStartsWith=${nameStartsWith}`);
+    const searchValue = event.target[0].value;
+    if (path === "/character") {
+      searchParams.set("titleStartsWith", searchValue);
+      const href = `${path}?${searchParams.toString()}`
+      router.push(href);
+    }
+    else {
+      router.push(`?nameStartsWith=${searchValue}`);
+    };
   };
 
   return (

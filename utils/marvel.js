@@ -1,23 +1,23 @@
 import createURL from "./createURL";
 import fetchData from "./fetchData";
 
-export async function fetchCharacters({ nameStartsWith, page, id="" }) {
-  const path = id ? `/characters/${id}` : `/characters`;
-  const url = createURL({ path, searchParams: { nameStartsWith, page } });
+export async function fetchCharacters(searchParams) {
+  const path = searchParams?.id ? `/characters/${searchParams.id}` : `/characters`;
+  const url = createURL({ path, searchParams });
   const { data } = await fetchData(url);
   return data;
 };
 
-export async function fetchCharacterComics({ nameStartsWith, page, id }) {
-  const path = `/characters/${id}/comics`;
-  const url = createURL({ path, searchParams: { nameStartsWith, page } });
+export async function fetchCharacterComics(searchParams) {
+  const path = `/characters/${searchParams.id}/comics`;
+  const url = createURL({ path, searchParams });
   const { data } = await fetchData(url);
   return data;
 };
 
-export async function fetchComics({ titleStartsWith, page, id }) {
-  const path = id ? `/comics/${id}` : `/comics`;
-  const url = createURL({ path, searchParams: { titleStartsWith, page } });
+export async function fetchComics(searchParams) {
+  const path = searchParams.id ? `/comics/${id}` : `/comics`;
+  const url = createURL({ path, searchParams });
   const { data } = await fetchData(url);
   return data;
 }
