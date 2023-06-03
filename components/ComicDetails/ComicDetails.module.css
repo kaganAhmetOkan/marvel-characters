@@ -12,6 +12,7 @@
 
 .description {
   text-align: justify;
+  flex-grow: 1;
 }
 
 .description[data-no-description="true"] {
