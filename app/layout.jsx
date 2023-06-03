@@ -3,7 +3,7 @@ import Header from '@/components/Header/Header';
 
 export const metadata = {
   title: 'Marvel Characters',
-  description: 'Search your favorite Marvel heroes and villains!',
+  description: 'Browse your favorite Marvel heroes and villains!',
 };
 
 export default function RootLayout({ children }) {
