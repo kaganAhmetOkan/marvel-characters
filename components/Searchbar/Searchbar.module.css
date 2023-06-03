@@ -5,6 +5,10 @@
   transition: 200ms;
 }
 
+.main[data-inActive="true"] {
+  display: none;
+}
+
 .main > input {
   border-radius: 2rem 0 0 2rem;
   border: 1px solid var(--accent-primary);

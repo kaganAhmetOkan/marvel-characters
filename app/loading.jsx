@@ -1,4 +1,4 @@
-import style from "./page.module.css";
+import style from "./loading.module.css";
 import Image from "next/image";
 import iconLoading from "@/public/loading.png";
 
