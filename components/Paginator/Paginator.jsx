@@ -6,7 +6,7 @@ import iconRight from "@/public/right.png";
 
 export default function Paginator({ pageIndex, maxPage, path="/", searchParams }) {
   const pages = [];
-  const pagesNumber = Math.min(3, maxPage);
+  const pagesNumber = 2
   let remainder = 0;
 
   // NOTE: using react.nodes instead of plain objects in pages array may slow down page load or increase page size. Worth investigating
