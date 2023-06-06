@@ -1,7 +1,7 @@
 .main {
   display: flex;
   justify-content: center;
-  width: 200px;
+  width: 150px;
   flex-grow: 1;
 }
 
@@ -29,17 +29,23 @@
   flex-grow: 1;
   text-align: center;
   margin: 0; padding: 0.5rem;
-  font-size: 1.2rem;
+  font-size: 1rem;
 }
 
 .image {
-  height: 300px;
+  height: 250px;
   width: inherit;
   overflow: hidden;
+  position: relative;
 }
 
 .image > img {
   transition: 200ms;
+  object-fit: cover;
+}
+
+.main[data-image-not-found="true"] .image > img {
+  width: unset !important;
 }
 
 .container:hover .image > img {

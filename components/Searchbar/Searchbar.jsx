@@ -12,7 +12,7 @@ export default function Searchbar() {
   const path = usePathname();
   const searchParams = useSearchParams();
   const newSearchParams = new URLSearchParams(searchParams);
-  const placeholder = `Search ${path.substring(1)}`;
+  const placeholder = path === "/characters" ? "Search characters" : "Search comics";
 
   const submitSearch = useCallback(debounce(500, (searchValue) => {
     if (path === "/character" || path === "/comics") submitWithParams(searchValue);
