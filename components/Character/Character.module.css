@@ -1,31 +1,39 @@
+@keyframes slide-in {
+  from {
+    opacity: 0;
+    translate: 0 100px;
+  }
+  to {
+    opacity: 1;
+    translate: 0 0;
+  }
+}
+
 .main {
   display: flex;
   flex-direction: column;
   flex-grow: 1;
   align-items: center;
+  animation: slide-in 200ms both ease;
 }
 
 .container {
   display: flex;
   flex-direction: column;
   height: 250px; width: 150px;
-  border: 1px solid var(--bg-secondary);
-  box-shadow: 0px 0 0 var(--bg-secondary);
+  border-radius: 8px;
+  box-shadow: 0 0 1px var(--bg-secondary);
   overflow: hidden;
   align-items: center;
   cursor: pointer;
   transition: 200ms;
 }
 
-.container:hover {
-  border: 1px solid var(--accent-dangerous);
-  box-shadow: 4px 0 0 var(--accent-dangerous);
-}
-
 .image {
   display: flex;
   width: 200px; height: 200px;
   overflow: hidden;
+  position: relative;
 }
 
 .main[data-image-not-found="true"] .image {
@@ -54,21 +62,18 @@
   justify-content: center;
   flex-grow: 1;
   width: 150px;
-  color: var(--fg-secondary);
-  background-color: var(--accent-primary);
+  color: var(--accent-primary);
   font-size: 18px;
   font-weight: bold;
   text-align: center;
-  transition: 200ms;
-}
-
-.container:hover .title {
-  background-color: var(--accent-dangerous);
 }
 
 @media (prefers-color-scheme: dark) {
   .container {
-    border: 1px solid var(--accent-secondary);
-    box-shadow: 0 0 0 var(--accent-secondary);
+    box-shadow: 0 0 2px var(--accent-secondary);
+  }
+
+  .title {
+    color: var(--foreground);
   }
 }

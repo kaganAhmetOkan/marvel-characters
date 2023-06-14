@@ -22,6 +22,8 @@ export default function Hero() {
     };
   };
 
+  // TODO: unique random doesnt work
+
   const src1 = getRandomAvenger();
   const src2 = getRandomAvenger();
 

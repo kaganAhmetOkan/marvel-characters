@@ -4,7 +4,7 @@ import Character from "../Character/Character";
 export default function Characters({ characters }) {
   return (
     <div className={style.main}>
-      {characters?.map((character) => <Character key={character?.id} character={character} />)}
+      {characters?.map((character, index) => <Character index={index} key={character?.id} character={character} />)}
     </div>
   );
 };
