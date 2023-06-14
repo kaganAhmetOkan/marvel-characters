@@ -12,7 +12,7 @@ export default function Searchbar() {
   const path = usePathname();
   const searchParams = useSearchParams();
   const newSearchParams = new URLSearchParams(searchParams);
-  const placeholder = path === "/characters" ? "Search characters" : "Search comics";
+  const placeholder = path === "/" ? "Search characters" : "Search comics";
 
   const submitSearch = useCallback(debounce(500, (searchValue) => {
     if (path === "/character" || path === "/comics") submitWithParams(searchValue);
@@ -34,7 +34,7 @@ export default function Searchbar() {
   };
 
   return (
-    <form className={style.main} onSubmit={(event) => handleSubmit(event)} data-focus={focused} data-inActive={path.length < 2 || path === "/comic"} >
+    <form className={style.main} onSubmit={(event) => handleSubmit(event)} data-focus={focused} data-inActive={path === "/comic"} >
       <label hidden htmlFor="searchbar-input">Search a Marvel Character</label>
       <input
         id="searchbar-input"

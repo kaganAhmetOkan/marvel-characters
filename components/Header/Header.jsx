@@ -7,7 +7,7 @@ export default function Header() {
     <header className={style.main}>
       <Link className={style.hero} href={"/"}>Marvel Characters</Link>
       <nav className={style.nav}>
-        <Link href="/characters">Characters</Link>
+        <Link href="/">Characters</Link>
         <Link href="/comics">Comics</Link>
       </nav>
       <Searchbar />

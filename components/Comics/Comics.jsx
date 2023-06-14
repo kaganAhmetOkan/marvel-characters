@@ -5,7 +5,7 @@ export default function Comics({ comics }) {
 
   return (
     <div className={style.main}>
-      {comics?.map((comic) => <Comic key={comic?.id} comic={comic} />)}
+      {comics?.map((comic, index) => <Comic key={comic?.id} comic={comic} index={index} />)}
     </div>
   );
 };

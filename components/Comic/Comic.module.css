@@ -1,8 +1,20 @@
+@keyframes slide-in {
+  from {
+    opacity: 0;
+    translate: 0 100px;
+  }
+  to {
+    opacity: 1;
+    translate: 0 0;
+  }
+}
+
 .main {
   display: flex;
   justify-content: center;
   width: 200px;
   flex-grow: 1;
+  animation: slide-in 200ms both ease;
 }
 
 .container {
