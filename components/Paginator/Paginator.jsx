@@ -24,33 +24,33 @@ export default function Paginator({ pageIndex, maxPage }) {
 
   if (pageIndex !== 1 && pageIndex > pagesNumber + 1) {
     const href = generateHREF(1)
-    pages.push(<Link className={style.indexed} href={href} >1</Link>);
+    pages.push(<Link key={href} className={style.indexed} href={href} >1</Link>);
   };
-  if (pageIndex > pagesNumber + 1) pages.push(<div className={style.dots}>...</div>);
+  if (pageIndex > pagesNumber + 1) pages.push(<div key={"dots1"} className={style.dots}>...</div>);
 
   for (let i = pageIndex - pagesNumber; i < pageIndex + pagesNumber + 1; i++) {
     if (i < 1 || i > maxPage) remainder++;
     else {
       const href = generateHREF(i);
-      pages.push(<Link href={href} data-current={pageIndex === i} >{i}</Link>);
+      pages.push(<Link key={href} href={href} data-current={pageIndex === i} >{i}</Link>);
     };
   };
 
   for (let i = 0; i < remainder; i++) {
     if (pageIndex - pagesNumber <= 0) {
       const href = generateHREF(pageIndex + pagesNumber + 1 + i);
-      pages.push(<Link href={href} >{pageIndex + pagesNumber + 1 + i}</Link>);
+      pages.push(<Link key={href} href={href} >{pageIndex + pagesNumber + 1 + i}</Link>);
     }
     else {
       const href = generateHREF(pageIndex - pagesNumber - i);
-      pages.splice(2, 0, <Link href={href}>{pageIndex - pagesNumber - i}</Link>)
+      pages.splice(2, 0, <Link key={href} href={href}>{pageIndex - pagesNumber - i}</Link>)
     };
   };
 
-  if (pageIndex < maxPage - pagesNumber) pages.push(<div className={style.dots}>...</div>);
+  if (pageIndex < maxPage - pagesNumber) pages.push(<div key={"dots2"} className={style.dots}>...</div>);
   if (pageIndex !== maxPage && pageIndex < maxPage - pagesNumber) {
     const href = generateHREF(maxPage);
-    pages.push(<Link className={style.indexed} href={href}>{maxPage}</Link>)
+    pages.push(<Link key={href} className={style.indexed} href={href}>{maxPage}</Link>)
   };
 
   while (pages.length > maxPage) pages.pop();

@@ -34,7 +34,7 @@ export default function Searchbar() {
   };
 
   return (
-    <form className={style.main} onSubmit={(event) => handleSubmit(event)} data-focus={focused} data-inActive={path === "/comic"} >
+    <form className={style.main} onSubmit={(event) => handleSubmit(event)} data-focus={focused} data-in-active={path === "/comic"} >
       <label hidden htmlFor="searchbar-input">Search a Marvel Character</label>
       <input
         id="searchbar-input"

@@ -5,7 +5,7 @@
   transition: 200ms;
 }
 
-.main[data-inActive="true"] {
+.main[data-in-active="true"] {
   display: none;
 }
 
