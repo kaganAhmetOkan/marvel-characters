@@ -22,7 +22,7 @@
   flex-direction: column;
   height: 250px; width: 150px;
   border-radius: 8px;
-  box-shadow: 0 0 1px var(--bg-secondary);
+  box-shadow: 0 0 0.1rem var(--bg-secondary);
   overflow: hidden;
   align-items: center;
   cursor: pointer;
